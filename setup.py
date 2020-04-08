@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name="covirus", # Replace with your own username
+    name="covirus",
     version="0.0.1",
     author="Victor Maricato",
     author_email="maricatovictor@gmail.com",
@@ -15,5 +15,5 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires=">=3.6",
 )
