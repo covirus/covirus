@@ -7,7 +7,7 @@ memory = Memory(CACHE_DIR, verbose=1)
 
 
 class COVIDDataset:
-    def __init__(self, cache_dir="/tmp/data/br"):
+    def __init__(self, cache_dir="/tmp/data/"):
         self.cache_dir = cache_dir
         self.load_data = memory.cache(self.load_data)
         self.load_data()
