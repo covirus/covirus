@@ -1,0 +1,7 @@
+version: "3"
+services:
+  covirus:
+    build: .
+    volumes:
+      - .:/app
+      - /tmp:/tmp
