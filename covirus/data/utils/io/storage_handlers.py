@@ -1,5 +1,4 @@
 import os
-import git
 import stat
 import logging
 
@@ -7,24 +6,19 @@ logger = logging.getLogger()
 
 
 def create_data_dir(path):
-    logger.info(f"Data will be stored at {path!r}")
+    logger.info(f"Creating folder at %s", path)
     os.makedirs(path, exist_ok=True)
 
 
-def get_repo(path, url):
-    logger.info(f"Getting dataset from git: {url!r}")
-    git.Git(path).clone(url)
-    logger.info(f"Saved dataset on: {path!r}")
+def reset_cache_folder_if_exists(path):
+    if cache_exists(path):
+        logger.info(f"Resetting cache folder: %s", path)
+        rmdir(path)
+        create_data_dir(path)
 
 
 def cache_exists(path):
     return os.path.exists(path)
-
-
-def reset_cache_folder(path):
-    logger.info(f"Resetting cache folder: {path!r}")
-    if os.path.exists(path):
-        rmdir(path)
 
 
 def rmdir(top):
