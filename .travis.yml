@@ -1,14 +1,8 @@
 language: python
-
+script: bash bin/test.sh
 requirements:
   provider: script
   script: bash bin/compile-requirements.sh
-  on:
-    branch: develop
-
-test:
-  provider: script
-  script: bash bin/test.sh
   on:
     branch: develop
 # deploy:
