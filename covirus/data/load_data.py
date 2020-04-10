@@ -1,9 +1,9 @@
 from .countries.load_data import get_country_data
-from .dataset import COVIDDataset
+from .dataset import Dataset
 from abc import abstractmethod
 
 
-def load_dataset(source=None, country=None) -> COVIDDataset:
+def load_dataset(source=None, country=None) -> Dataset:
     if is_all_null(source, country):
         raise ValueError("You must specify a source or/and country argument")
     return get_data(country, source)
