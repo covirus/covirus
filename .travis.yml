@@ -1,8 +1,5 @@
 language: python
-requirements:
-  provider: script
-  script: bash bin/compile-requirements.sh
-
+before_script: bash bin/compile-requirements.sh
 script: bash bin/test.sh
 # deploy:
 #   provider: pypi
