@@ -1,0 +1,18 @@
+language: python
+
+requirements:
+  provider: script
+  script: bash bin/compile-requirements.sh
+  on:
+    branch: develop
+
+test:
+  provider: script
+  script: bash bin/test.sh
+  on:
+    branch: develop
+# deploy:
+#   provider: pypi
+#   user: "__token__"
+#   password:
+#     secure: ""
