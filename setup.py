@@ -3,12 +3,12 @@ from setuptools import setup, find_packages
 
 setup(
     name="covirus",
-    version="0.0.2",
+    version="0.0.3",
     author="Victor Maricato",
     author_email="maricatovictor@gmail.com",
     description="A library for dealing with COVID19 analysis",
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/maricatovictor/covirus",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
