@@ -1,10 +1,11 @@
 language: python
-script: bash bin/test.sh
 requirements:
   provider: script
   script: bash bin/compile-requirements.sh
   on:
     branch: develop
+
+script: bash bin/test.sh
 # deploy:
 #   provider: pypi
 #   user: "__token__"
