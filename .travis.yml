@@ -1,9 +1,9 @@
 language: python
 script: bash bin/test.sh
 deploy:
-  provider: pypi
-  user: "__token__"
-  password:
-    secure: pypi-AgEIcHlwaS5vcmcCJDgzOGU5N2MwLTM2MmEtNDY0OC05OWY0LWQ3MDM0N2U4MWFlYgACOHsicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJjb3ZpcnVzIl19LCAidmVyc2lvbiI6IDF9AAAGIPG_0qKDyuNS6A_74oy63IwATBcMwPC1ehvvObupITOR
   on:
     branch: master
+  provider: pypi
+  user: __token__
+  password:
+    secure: rzJ1kM0jmw2BSWNbQGem3MIOHNrZuaz6gldwNqE6wF47+o0p5GlCLcfvFHPdv1ITtUF8IwbL7E8RYv9nE/46ENhqIIbQfdY8NVANPUtmls9Nzxd95+jpD1ppWmPCCRhMx0SYJfsIj5V3MpogLFNU2khLxTTZJFnibz6LeLDQOn+pwmJI9YIFLTJ/U+XgsHaB4xI2YGuhKANuLAXj0X5y5cD2sVgScZOYsA4r12YjZcyjeA7EdLwkBaSro3yU4+/M65Ka1Kw9kZPSqkpG8inOB4PVQ8E9f36xXW6vwP9L3su4MUeAuqj716eCeGsnTv9wdzy10CitNOYNt/u9FFVAxgI/Ddi0BYcL1FO8mQUmvU2qaK27xHzIN7d+cFMJz/TwanzTVC61NAcKjBHFyYqZjGw4sLs6bG5Wr6VmnguRFdV213DqYDxytw/Y3JJEw0n6KGqD5GcHd7YMMr+rega3Czs1GA/HxAVKcuU/OrAwbX++PFVVBB6f6WDaayheF5psTZxlr3h4y2dHWTWQZt80HzIRCcNvEW2Nx/RQtLxd9h3bhggNSHf115FahZao0ZQETsJFROGKj+qauS2TUUgzxWkSLGSB+pJ71Bu4LCHC/0znJb2KfwjijanY3VprJt3zPFGM0INRhmTl7MNjIPKoFB5EekyPrfKecEEGPG88czs=
