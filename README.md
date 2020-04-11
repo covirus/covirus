@@ -26,7 +26,7 @@
 - [Other COVID-19 projects](#other-covid-19-projects)
     - [Worldwide](#worldwide)
     - [Brazil](#brazil)
-- [Contributing ![Open Source Helpers](https://www.codetriage.com/maricatovictor/covirus)](#contributing-img-src%22httpswwwcodetriagecommaricatovictorcovirus%22-alt%22open-source-helpers%22)
+- [Contributing](#contributing-img-src%22httpswwwcodetriagecommaricatovictorcovirus%22-alt%22open-source-helpers%22)
   - [Code Style](#code-style)
   - [Running the Tests](#running-the-tests)
     - [Docker](#docker)
@@ -100,8 +100,12 @@ Outputs:
 Unfortunely, we still do not provide a documentation page :(
 
 ## References
-### Data Sources
+#### Data Sources
 Please for more specific data-sources info, [refer to `data/`](https://github.com/maricatovictor/covirus/tree/master/covirus/data)
+
+#### Models
+* [3778/COVID-19](https://github.com/3778/COVID-19)
+* [SIR](https://scipython.com/book/chapter-8-scipy/additional-examples/the-sir-epidemic-model/)
 
 ## Other COVID-19 projects
 #### Worldwide
