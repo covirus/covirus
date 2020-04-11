@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="covirus",
-    version="0.0.4",
+    version="0.0.4-1",
     author="Victor Maricato",
     author_email="maricatovictor@gmail.com",
     description="A library for dealing with COVID19 analysis",
