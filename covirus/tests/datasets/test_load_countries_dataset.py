@@ -8,6 +8,7 @@ import os
 def test_import_wcota(cache_dir, wcota_dataset):
     assert os.path.exists(wcota_dataset.cache_dir + "cases-brazil-cities.csv")
     assert isinstance(wcota_dataset.cities, pd.DataFrame)
+    assert "RJ" in wcota_dataset.states["state"].values
 
 
 def test_import_invalid_source():
