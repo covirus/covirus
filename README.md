@@ -9,9 +9,6 @@
 
 ## Table of Contents
 
-- [covirus: #STAY_HOME](#covirus-stayhome)
-- [What is it?](#what-is-it)
-- [Table of Contents](#table-of-contents)
 - [Main Features](#main-features)
     - [Current](#current)
     - [Future](#future)
