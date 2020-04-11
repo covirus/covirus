@@ -7,6 +7,32 @@
 ## What is it?
 **covirus** is a Python library to centralize data and models related to COVID19 outbreak. Its goal is to make importing data and running models easier, allowing many researchers and also data enthusiasts to help understand how **COVID-19** is spreading worldwide and what to expect.
 
+## Table of Contents
+
+- [covirus: #STAY_HOME](#covirus-stayhome)
+- [What is it?](#what-is-it)
+- [Table of Contents](#table-of-contents)
+- [Main Features](#main-features)
+    - [Current](#current)
+    - [Future](#future)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Datasets](#datasets)
+- [Documentation](#documentation)
+- [References](#references)
+  - [Data Sources](#data-sources)
+- [Other COVID-19 projects](#other-covid-19-projects)
+    - [Worldwide](#worldwide)
+    - [Brazil](#brazil)
+- [Contributing ![Open Source Helpers](https://www.codetriage.com/maricatovictor/covirus)](#contributing-img-src%22httpswwwcodetriagecommaricatovictorcovirus%22-alt%22open-source-helpers%22)
+  - [Code Style](#code-style)
+  - [Running the Tests](#running-the-tests)
+    - [Docker](#docker)
+    - [Local](#local)
+  - [Adding Dependencies](#adding-dependencies)
+  - [Directory Structure](#directory-structure)
+- [License](#license)
+
 ## Main Features
 
 #### Current
@@ -30,11 +56,11 @@ pip install covirus
 
 ## Usage
 
-### Datasets
+### [Datasets](https://github.com/maricatovictor/covirus/tree/master/covirus/data)
 
 ```python
 >>> from covirus.data import load_dataset
->>> data = load_dataset(country="BR", source="wcota") # Refer to covirus/data/ to check on which datasets are available 
+>>> data = load_dataset(country="BR", source="wcota") # Reference: covirus/data/
 >>> data.cities.head()
 >  country state             city   ibgeID  deaths  totalCases
 0  Brazil    PA    Abaetetuba/PA  1500107       0           2
