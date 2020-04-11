@@ -19,6 +19,7 @@
 - [Usage](#usage)
   - [Datasets](#datasets)
   - [Models](#models)
+      - [SIR](#sir)
 - [Documentation](#documentation)
 - [References](#references)
   - [Data Sources](#data-sources)
@@ -73,7 +74,7 @@ pip install covirus
 
 ### [Models](https://github.com/maricatovictor/covirus/tree/master/covirus/models)
 
-#####SIR
+##### SIR
 ```python
 >>> from covirus.models.compartiment import SIR
 >>> sir = SIR()
