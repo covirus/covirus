@@ -1,2 +1,2 @@
-from .compartment import CompartimentModel
+from .compartment import CompartmentModel
 from .SIR import SIR

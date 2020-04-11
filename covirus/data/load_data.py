@@ -24,7 +24,7 @@ def load_dataset(source=None, country=None) -> Dataset:
                     Source: https://github.com/wcota/covid19br
     
     Raises:
-        ValueError: ValueError is raised if source AND country is none, since you must define WHICH dataset you want.   
+        ValueError: ValueError is raised if source AND country are both None, since you must define WHICH dataset you want.   
     
     Returns:
         Dataset: Dataset object, which may contain several pd.Dataframe inside within its objects.

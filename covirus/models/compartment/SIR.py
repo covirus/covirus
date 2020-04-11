@@ -1,10 +1,10 @@
-from .compartment import CompartimentModel
+from .compartment import CompartmentModel
 from scipy.integrate import odeint
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-class SIR(CompartimentModel):
+class SIR(CompartmentModel):
     """SIR modelA simple mathematical description of the spread of a disease in a population is the so-called SIR model, which divides the (fixed) population of N individuals into three "compartments" which may vary as a function of time, t:
 
         S(t) are those susceptible but not yet infected with the disease;

@@ -1,4 +1,4 @@
-from covirus.models.compartment import SIR, CompartimentModel
+from covirus.models.compartment import SIR, CompartmentModel
 import numpy as np
 
 
@@ -19,7 +19,7 @@ def test_sir_model():
     S, I, R = sir_model.predict(days=days)
 
     # Assert
-    assert isinstance(sir_model, CompartimentModel)
+    assert isinstance(sir_model, CompartmentModel)
     assert isinstance(S, np.ndarray)
     assert isinstance(I, np.ndarray)
     assert isinstance(R, np.ndarray)
