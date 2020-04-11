@@ -2,7 +2,7 @@ from abc import abstractmethod
 from joblib import Memory
 
 
-CACHE_DIR = "/tmp/data/"
+CACHE_DIR = "/tmp/covirus/data/"
 memory = Memory(CACHE_DIR, verbose=0)
 
 
