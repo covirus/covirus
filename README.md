@@ -16,14 +16,16 @@
 * Preprocessors: pipelines for working with datasets in the lib.
 
 ## Installation
+The source code is currently hosted on GitHub at:
+https://github.com/maricatovictor/covirus/tree/master/covirus
+
+PyPI: https://pypi.org/project/covirus/
 
 Run:
 ```sh
-# PyPI
 pip install covirus
 ```
-The source code is currently hosted on GitHub at:
-https://github.com/maricatovictor/covirus
+
 
 ## Usage
 
@@ -63,6 +65,7 @@ Please for more specific data-sources info, [refer to `data/`](https://github.co
 ### Code Style
 We use [Black](https://github.com/psf/black) code-style here.
 Also, for Docstrings, please use [Google Docstring Styleguide](https://github.com/google/styleguide)
+
 
 
 
