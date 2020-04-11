@@ -24,7 +24,7 @@
 - [Other COVID-19 projects](#other-covid-19-projects)
     - [Worldwide](#worldwide)
     - [Brazil](#brazil)
-- [Contributing ![Open Source Helpers](https://www.codetriage.com/maricatovictor/covirus)](#contributing-img-src%22httpswwwcodetriagecommaricatovictorcovirus%22-alt%22open-source-helpers%22)
+- [Contributing](#contributing)
   - [Code Style](#code-style)
   - [Running the Tests](#running-the-tests)
     - [Docker](#docker)
