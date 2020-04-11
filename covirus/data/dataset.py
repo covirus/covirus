@@ -1,7 +1,9 @@
 from abc import abstractmethod
+import itertools
 from joblib import Memory
 import glob
 
+DATA_FORMATS = ["csv", "parquet", "pickle", "pkl"]
 CACHE_DIR = "/tmp/covirus/data/"
 memory = Memory(CACHE_DIR, verbose=0)
 
@@ -30,4 +32,5 @@ class Dataset:
         pass
 
     def list_dataset_files(self):
-        return glob.glob(self.cache_dir + "/*")
+        dataset_files = [glob.glob(self.cache_dir + f"*.{ext}") for ext in DATA_FORMATS]
+        return list(itertools.chain(*dataset_files))
