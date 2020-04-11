@@ -40,8 +40,10 @@
 #### Current
 * Datasets: we provide an Dataset object for each dataset inside the lib. Each object may have one or more `pd.DataFrame` and other useful infos about specific datasets available around the world.
 
+* Models: i.e.: SIR, SEIR, Bayesian estimators will be provided to facilitate predictions and projections. These models should be validated by a health professional, i.e: epidemiologist.
+
+
 #### Future
-* Models: i.e.: SIR, SEIR, Bayesian estimators will be provided to facilitate predictions and projections. These models should be validated by a health professional, such as an epidemiologist.
 * Preprocessors: pipelines for working with datasets in the lib.
 
 ## Installation
