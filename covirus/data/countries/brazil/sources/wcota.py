@@ -1,12 +1,12 @@
 import pandas as pd
 import logging
+from ..br_dataset import BRDataset
 from covirus.data.utils import get_repo
-from covirus.data.dataset import Dataset
 
 logger = logging.getLogger()
 
 
-class WCotaDataset(Dataset):
+class WCotaDataset(BRDataset):
     def load_data(self):
         self.download_wcota_dataset()
 

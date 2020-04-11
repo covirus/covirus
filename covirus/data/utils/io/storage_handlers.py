@@ -10,11 +10,11 @@ def create_data_dir(path):
     os.makedirs(path, exist_ok=True)
 
 
-def reset_cache_folder_if_exists(path):
+def reset_cache(path):
     if cache_exists(path):
         logger.info(f"Resetting cache folder: %s", path)
         rmdir(path)
-        create_data_dir(path)
+    create_data_dir(path)
 
 
 def cache_exists(path):
