@@ -1,6 +1,6 @@
 from abc import abstractmethod
 from joblib import Memory
-
+import glob
 
 CACHE_DIR = "/tmp/covirus/data/"
 memory = Memory(CACHE_DIR, verbose=0)
@@ -27,3 +27,5 @@ class Dataset:
     @abstractmethod
     def get_dataset_dir(self):
         pass
+
+    def list_dataset_files(self): return glob.glob(self.cache_dir + '/*')

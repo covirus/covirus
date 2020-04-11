@@ -5,10 +5,9 @@ import pandas as pd
 import os
 
 
-def test_import_wcota(cache_dir):
-    wcota_data = load_dataset(country="BR", source="wcota")
-    assert os.path.exists(cache_dir + "covid19br/" + "cases-brazil-cities.csv")
-    assert isinstance(wcota_data.cities, pd.DataFrame)
+def test_import_wcota(cache_dir, wcota_dataset):
+    assert os.path.exists(wcota_dataset.cache_dir + "cases-brazil-cities.csv")
+    assert isinstance(wcota_dataset.cities, pd.DataFrame)
 
 
 def test_import_invalid_source():
