@@ -5,6 +5,18 @@ import matplotlib.pyplot as plt
 
 
 class SIR(CompartimentModel):
+    """SIR modelA simple mathematical description of the spread of a disease in a population is the so-called SIR model, which divides the (fixed) population of N individuals into three "compartments" which may vary as a function of time, t:
+
+        S(t) are those susceptible but not yet infected with the disease;
+        I(t) is the number of infectious individuals;
+        R(t) are those individuals who have recovered from the disease and now have immunity to it.
+        
+        The SIR model describes the change in the population of each of these compartments in terms of two parameters, β and γ. β describes the effective contact rate of the disease: an infected individual comes into contact with βN other individuals per unit time (of which the fraction that are susceptible to contracting the disease is S/N). 
+        γ is the mean recovery rate: that is, 1/γ is the mean period of time during which an infected individual can pass it on.
+    
+        Reference: https://scipython.com/book/chapter-8-scipy/additional-examples/the-sir-epidemic-model/
+    """
+
     def fit(
         self,
         pop_size: int,
@@ -13,6 +25,18 @@ class SIR(CompartimentModel):
         contact_rate: float,
         mean_recovery_rate: float,
     ):
+        """Fits the SIR Model
+
+            Args:
+                pop_size (int): Population size of the region being projected
+                n_infected (int): Current number of infected in the region being projected
+                n_recovered (int): Current number of recovered in the region being projected
+                contact_rate (float): contact rate of the disease: an infected individual 
+                                        comes into contact with βN other individuals per unit time (of which the fraction that are susceptible to contracting the disease is S/N).
+                mean_recovery_rate (float): Passed in the form of 1/γ, where:
+                                                γ is the mean recovery rate: that is
+                                                1/γ is the mean period of time during which an infected individual can pass it on.
+        """
         self.pop = pop_size
         self.s0 = pop_size - n_infected - n_recovered
         self.i0 = n_infected

@@ -1,7 +1,4 @@
 FROM python:3.7
-ENV PYTHONDONTWRITEBYTECODE=1
-
-RUN python -m pip install --upgrade pip
 
 WORKDIR /app
 

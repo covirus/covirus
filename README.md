@@ -62,6 +62,8 @@ pip install covirus
 
 ### [Datasets](https://github.com/maricatovictor/covirus/tree/master/covirus/data)
 
+[wcota](https://github.com/wcota/covid19br) - Confirmed cases and deaths of COVID-19 in Brazil, at municipal (city) level. https://wcota.me/covid19br
+
 ```python
 >>> from covirus.data import load_dataset
 >>> data = load_dataset(country="BR", source="wcota") # Reference: covirus/data/
