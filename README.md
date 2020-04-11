@@ -9,19 +9,24 @@
 
 ## Table of Contents
 
+- [covirus: #STAY_HOME](#covirus-stayhome)
+- [What is it?](#what-is-it)
+- [Table of Contents](#table-of-contents)
 - [Main Features](#main-features)
     - [Current](#current)
     - [Future](#future)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Datasets](#datasets)
+  - [Models](#models)
+      - [SIR](#sir)
 - [Documentation](#documentation)
 - [References](#references)
   - [Data Sources](#data-sources)
 - [Other COVID-19 projects](#other-covid-19-projects)
     - [Worldwide](#worldwide)
     - [Brazil](#brazil)
-- [Contributing](#contributing)
+- [Contributing](#contributing-img-src%22httpswwwcodetriagecommaricatovictorcovirus%22-alt%22open-source-helpers%22)
   - [Code Style](#code-style)
   - [Running the Tests](#running-the-tests)
     - [Docker](#docker)
@@ -35,8 +40,10 @@
 #### Current
 * Datasets: we provide an Dataset object for each dataset inside the lib. Each object may have one or more `pd.DataFrame` and other useful infos about specific datasets available around the world.
 
+* Models: i.e.: SIR, SEIR, Bayesian estimators will be provided to facilitate predictions and projections. These models should be validated by a health professional, i.e: epidemiologist.
+
+
 #### Future
-* Models: i.e.: SIR, SEIR, Bayesian estimators will be provided to facilitate predictions and projections. These models should be validated by a health professional, such as an epidemiologist.
 * Preprocessors: pipelines for working with datasets in the lib.
 
 ## Installation
@@ -67,13 +74,38 @@ pip install covirus
 4  Brazil    SP    Adamantina/SP  3500105       0           0
 ```
 
+### [Models](https://github.com/maricatovictor/covirus/tree/master/covirus/models)
+
+##### SIR
+```python
+>>> from covirus.models.compartiment import SIR
+>>> sir = SIR()
+>>> pop_size, n_infected, n_recovered, contact_rate, mean_recovery_rate = (
+      1000,
+      1,
+      0,
+      0.2,
+      1 / 10, #1 recovered per 10 days
+  )
+>>> sir.fit(pop_size, n_infected, n_recovered, contact_rate, mean_recovery_rate)
+>>> S, I, R = sir.predict(days=160)
+>>> sir.plot()
+>
+```
+Outputs:
+![SIR-generated-2020-04-11](https://user-images.githubusercontent.com/11489228/79053576-d13f5400-7c14-11ea-8dc6-b01fea6f3ada.jpg)
+
 ## Documentation
 
 Unfortunely, we still do not provide a documentation page :(
 
 ## References
-### Data Sources
+#### Data Sources
 Please for more specific data-sources info, [refer to `data/`](https://github.com/maricatovictor/covirus/tree/master/covirus/data)
+
+#### Models
+* [3778/COVID-19](https://github.com/3778/COVID-19)
+* [SIR](https://scipython.com/book/chapter-8-scipy/additional-examples/the-sir-epidemic-model/)
 
 ## Other COVID-19 projects
 #### Worldwide

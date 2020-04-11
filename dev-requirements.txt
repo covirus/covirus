@@ -23,7 +23,7 @@ pluggy==0.13.1            # via pytest
 prompt-toolkit==3.0.5     # via ipython
 py==1.8.1                 # via pytest
 pygments==2.6.1           # via ipython
-pyparsing==2.4.7          # via packaging
+pyparsing==2.4.7          # via -c requirements.txt, packaging
 pytest-cov==2.8.1         # via -r dev-requirements.in
 pytest==5.4.1             # via -r dev-requirements.in, pytest-cov
 six==1.14.0               # via -c requirements.txt, packaging, traitlets
