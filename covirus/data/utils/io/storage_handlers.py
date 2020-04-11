@@ -15,10 +15,12 @@ def reset_cache(*paths):
         remove_cache_dir(path)
         create_data_dir(path)
 
+
 def remove_cache_dir(path):
     if cache_exists(path):
         logger.info(f"Resetting cache folder: %s", path)
         rmdir(path)
+
 
 def cache_exists(path):
     return os.path.exists(path)

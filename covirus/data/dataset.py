@@ -29,4 +29,5 @@ class Dataset:
     def get_dataset_dir(self):
         pass
 
-    def list_dataset_files(self): return glob.glob(self.cache_dir + '/*')
+    def list_dataset_files(self):
+        return glob.glob(self.cache_dir + "/*")

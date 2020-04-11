@@ -1,5 +1,5 @@
 import logging
-from .sources import (wcota)
+from .sources import wcota
 
 logger = logging.getLogger()
 
