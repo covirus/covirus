@@ -9,7 +9,8 @@
 
 ## Main Features
 
-* Datasets: we provide an Dataset object for each dataset inside the lib. Each object have `pd.DataFrames` and other useful infos about specific datasets available around the world.
+#### Current
+* Datasets: we provide an Dataset object for each dataset inside the lib. Each object have `pd.DataFrame` and other useful infos about specific datasets available around the world.
 
 #### Future
 * Models: i.e.: SIR, SEIR, Bayesian estimators will be provided to facilitate predictions and projections. These models should be validated by a health professional, such as an epidemiologist.
