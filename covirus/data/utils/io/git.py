@@ -6,7 +6,6 @@ logger = logging.getLogger()
 
 
 def get_repo(path, url):
-    reset_cache(path)
     logger.info(f"Getting dataset from git: %s, file will be saved at %s", url, path)
     git.Git(path).clone(url)
     logger.info(f"Saved dataset on: %s", path)

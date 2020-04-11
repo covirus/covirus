@@ -10,6 +10,7 @@ class Dataset:
     def __init__(self):
         self.load_data = memory.cache(self.load_data)
         self.cache_dir = self.get_cache_dir()
+        self.joblib_dir = CACHE_DIR + "joblib/covirus/data/"
         self.load_data()
         self.load_objects()
 
