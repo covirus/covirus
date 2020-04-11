@@ -11,7 +11,9 @@ class WCotaDataset(BRDataset):
         self.download_wcota_dataset()
 
     def download_wcota_dataset(self):
-        git_url = f"https://github.com/wcota/covid19br.git"
+        self.repo_name = 'covid19br'
+        self.cache_dir = self.cache_dir + self.repo_name
+        git_url = f"https://github.com/wcota/{self.repo_name}.git"
         logger.info("Getting dataset from git: %s", git_url)
         get_repo(self.cache_dir, git_url)
 
