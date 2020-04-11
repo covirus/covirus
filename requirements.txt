@@ -4,13 +4,20 @@
 #
 #    pip-compile --no-emit-trusted-host --no-index requirements.in
 #
+cycler==0.10.0            # via matplotlib
 git-python==1.0.3         # via -r requirements.in
 gitdb==4.0.2              # via gitpython
 gitpython==3.1.0          # via git-python
-joblib==0.14.1            # via -r requirements.in
-numpy==1.18.2             # via pandas
+joblib==0.14.1            # via scikit-learn
+kiwisolver==1.2.0         # via matplotlib
+matplotlib==3.2.1         # via -r requirements.in
+numpy==1.18.2             # via matplotlib, pandas, scikit-learn, scipy
 pandas==1.0.3             # via -r requirements.in
-python-dateutil==2.8.1    # via pandas
+pyparsing==2.4.7          # via matplotlib
+python-dateutil==2.8.1    # via matplotlib, pandas
 pytz==2019.3              # via pandas
-six==1.14.0               # via python-dateutil
+scikit-learn==0.22.2.post1  # via sklearn
+scipy==1.4.1              # via scikit-learn
+six==1.14.0               # via cycler, python-dateutil
+sklearn==0.0              # via -r requirements.in
 smmap==3.0.1              # via gitdb
