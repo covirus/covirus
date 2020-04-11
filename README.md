@@ -9,19 +9,23 @@
 
 ## Table of Contents
 
+- [covirus: #STAY_HOME](#covirus-stayhome)
+- [What is it?](#what-is-it)
+- [Table of Contents](#table-of-contents)
 - [Main Features](#main-features)
     - [Current](#current)
     - [Future](#future)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Datasets](#datasets)
+  - [Models](#models)
 - [Documentation](#documentation)
 - [References](#references)
   - [Data Sources](#data-sources)
 - [Other COVID-19 projects](#other-covid-19-projects)
     - [Worldwide](#worldwide)
     - [Brazil](#brazil)
-- [Contributing](#contributing)
+- [Contributing ![Open Source Helpers](https://www.codetriage.com/maricatovictor/covirus)](#contributing-img-src%22httpswwwcodetriagecommaricatovictorcovirus%22-alt%22open-source-helpers%22)
   - [Code Style](#code-style)
   - [Running the Tests](#running-the-tests)
     - [Docker](#docker)
@@ -66,6 +70,27 @@ pip install covirus
 3  Brazil    AC    Acrelândia/AC  1200013       0           9
 4  Brazil    SP    Adamantina/SP  3500105       0           0
 ```
+
+### [Models](https://github.com/maricatovictor/covirus/tree/master/covirus/models)
+
+#####SIR
+```python
+>>> from covirus.models.compartiment import SIR
+>>> sir = SIR()
+>>> pop_size, n_infected, n_recovered, contact_rate, mean_recovery_rate = (
+      1000,
+      1,
+      0,
+      0.2,
+      1 / 10, #1 recovered per 10 days
+  )
+>>> sir.fit(pop_size, n_infected, n_recovered, contact_rate, mean_recovery_rate)
+>>> S, I, R = sir.predict(days=160)
+>>> sir.plot()
+>
+```
+Outputs:
+![SIR-generated-2020-04-11](https://user-images.githubusercontent.com/11489228/79053576-d13f5400-7c14-11ea-8dc6-b01fea6f3ada.jpg)
 
 ## Documentation
 
