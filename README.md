@@ -138,6 +138,7 @@ sh bin/test.sh
 #### Local
 From project's root, run:
 ```sh
+pip install -r requirements.txt -r dev-requirements.txt
 pytest [-s | -x | -log-level=INFO] covirus/tests/
 ```
 
