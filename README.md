@@ -62,12 +62,41 @@ pip install covirus
 
 ### [Datasets](https://github.com/maricatovictor/covirus/tree/master/covirus/data)
 
+```python
+from covirus.data import load_dataset
+```
+
+#### World
+
+[Johns Hopkins University CSSE - COVID19 Dataset](https://github.com/CSSEGISandData/COVID-19) - Data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). They also provide a [dashboard](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
+
+```python
+>>> johns_hopkins_data = load_dataset("johns_hopkins")
+
+
+>>> johns_hopkins_data.who_report.sample(3)
+
+Province/States	Country/Region	WHO region	1/21/2020	1/22/2020	1/23/2020	1/24/2020	1/25/2020	1/26/2020	1/27/2020	...	3/25/2020	3/26/2020	3/27/2020	3/28/2020	3/29/2020	3/30/2020	3/31/2020	4/1/2020	4/2/2020	4/3/2020
+18	Shanghai	China	Western Pacific Region	1.0	2.0	9.0	9.0	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+160	NaN	Colombia	Region of the Americas	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	306.0	470.0	470.0	491.0	539.0	608.0	702.0	798.0	906.0	1065.0
+150	NaN	United States of America	Region of the Americas	NaN	NaN	1.0	1.0	2.0	2.0	5.0	...	51914.0	63570.0	68334.0	85228.0	103321.0	122653.0	140640.0	163199.0	187320.0	213600.0
+
+>>> johns_hopkins_data.report("02-02-2020").sample(3)
+
+Province/State	Country/Region	Last Update	Confirmed	Deaths	Recovered
+5	Anhui	Mainland China	2020-02-02T18:03:05	340	0	7
+44	Ontario	Canada	2020-02-01T18:12:49	3	0	0
+14	Shaanxi	Mainland China	2020-02-02T03:23:14	116	0	0
+```
+
+
+
+#### Brazil
 [wcota](https://github.com/wcota/covid19br) - Confirmed cases and deaths of COVID-19 in Brazil, at municipal (city) level. https://wcota.me/covid19br
 
 ```python
->>> from covirus.data import load_dataset
->>> data = load_dataset(country="BR", source="wcota") # Reference: covirus/data/
->>> data.cities.head()
+>>> wcota = load_dataset(country="BR", source="wcota") # Reference: covirus/data/
+>>> wcota.cities.head()
 >  country state             city   ibgeID  deaths  totalCases
 0  Brazil    PA    Abaetetuba/PA  1500107       0           2
 1  Brazil    CE       Abaiara/CE  2300101       0           1

@@ -1,7 +1,12 @@
+import pandas as pd
 from abc import abstractmethod
 import itertools
 from joblib import Memory
 import glob
+from covirus.data.utils import get_repo, reset_cache
+import logging
+
+logger = logging.getLogger()
 
 DATA_FORMATS = ["csv", "parquet", "pickle", "pkl"]
 CACHE_DIR = "/tmp/covirus/data/"
@@ -10,19 +15,28 @@ memory = Memory(CACHE_DIR, verbose=0)
 
 class Dataset:
     def __init__(self):
-        self.load_data = memory.cache(self.load_data)
+        self.download = memory.cache(self.download)
         self.cache_dir = self.get_cache_dir()
         self.joblib_dir = CACHE_DIR + "joblib/covirus/data/"
         self.load_data()
         self.load_objects()
 
-    @abstractmethod
     def load_data(self):
+        self.download()
+
+    @abstractmethod
+    def download(self):
         pass
 
     @abstractmethod
     def load_objects(self):
         pass
+
+    def read_file(self, filename: str, ignore_repo=False) -> pd.DataFrame:
+        path = self.cache_dir
+        if not ignore_repo:
+            path += f"{self.repo_name}/"
+        return pd.read_csv(path + filename)
 
     def get_cache_dir(self):
         return CACHE_DIR + "datasets/" + self.get_dataset_dir()
@@ -32,5 +46,15 @@ class Dataset:
         pass
 
     def list_dataset_files(self):
-        dataset_files = [glob.glob(self.cache_dir + f"*.{ext}") for ext in DATA_FORMATS]
+        dataset_files = [
+            glob.glob(self.cache_dir + f"/**/*.{ext}", recursive=True)
+            for ext in DATA_FORMATS
+        ]
         return list(itertools.chain(*dataset_files))
+
+
+class GitDataset(Dataset):
+    def download(self):
+        logger.info("Getting dataset from git: %s", self.git_url)
+        reset_cache(self.cache_dir, self.joblib_dir)
+        get_repo(self.cache_dir, self.git_url)

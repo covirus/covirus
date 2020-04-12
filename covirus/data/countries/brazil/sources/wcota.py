@@ -1,26 +1,14 @@
-import pandas as pd
-import logging
 from ..br_dataset import BRDataset
-from covirus.data.utils import get_repo, reset_cache
-
-logger = logging.getLogger()
+from covirus.data.dataset import GitDataset
 
 
-class WCotaDataset(BRDataset):
+class WCotaDataset(BRDataset, GitDataset):
     def __init__(self, *args, **kwargs):
         self.repo_name = "covid19br"
+        self.git_url = f"https://github.com/wcota/{self.repo_name}.git"
         super().__init__(*args, **kwargs)
         self.cache_dir = f"{self.cache_dir + self.repo_name}/"
         self.joblib_dir = self.joblib_dir + "wcota/load_data/"
-
-    def load_data(self):
-        self.download_wcota_dataset()
-
-    def download_wcota_dataset(self):
-        git_url = f"https://github.com/wcota/{self.repo_name}.git"
-        logger.info("Getting dataset from git: %s", git_url)
-        reset_cache(self.cache_dir, self.joblib_dir)
-        get_repo(self.cache_dir, git_url)
 
     def load_objects(self):
         self.cities_time = self.get_cities_time()
@@ -29,10 +17,6 @@ class WCotaDataset(BRDataset):
         self.total = self.get_total()
         self.cases_with_coordinates = self.get_cases_with_coordinates()
         self.sources = self.get_sources()
-
-    def read_file(self, filename: str) -> pd.DataFrame:
-        path = f"{self.cache_dir}{self.repo_name}/" + filename
-        return pd.read_csv(path)
 
     def get_cities_time(self):
         return self.read_file("cases-brazil-cities-time.csv")

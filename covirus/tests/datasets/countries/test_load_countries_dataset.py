@@ -16,11 +16,6 @@ def test_import_invalid_source():
         assert load_dataset(country="BR", source="bond")
 
 
-def test_import_empty_country():
-    with pytest.raises(NotImplementedError):
-        assert load_dataset(source="some_source")
-
-
 def test_import_not_country_parameters():
     with pytest.raises(NotValidCountry):
         assert load_dataset(country="OK")
