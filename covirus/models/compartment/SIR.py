@@ -11,8 +11,9 @@ class SIR(CompartmentModel):
         I(t) is the number of infectious individuals;
         R(t) are those individuals who have recovered from the disease and now have immunity to it.
         
-        The SIR model describes the change in the population of each of these compartments in terms of two parameters, β and γ. β describes the effective contact rate of the disease: an infected individual comes into contact with βN other individuals per unit time (of which the fraction that are susceptible to contracting the disease is S/N). 
-        γ is the mean recovery rate: that is, 1/γ is the mean period of time during which an infected individual can pass it on.
+        The SIR model describes the change in the population of each of these compartments in terms of two parameters, β and γ.
+        β - describes the effective contact rate of the disease: an infected individual comes into contact with βN other individuals per unit time (of which the fraction that are susceptible to contracting the disease is S/N). 
+        γ -  is the mean recovery rate: that is, 1/γ is the mean period of time during which an infected individual can pass it on.
     
         Reference: https://scipython.com/book/chapter-8-scipy/additional-examples/the-sir-epidemic-model/
     """
@@ -31,9 +32,9 @@ class SIR(CompartmentModel):
                 pop_size (int): Population size of the region being projected
                 n_infected (int): Current number of infected in the region being projected
                 n_recovered (int): Current number of recovered in the region being projected
-                contact_rate (float): contact rate of the disease: an infected individual 
+                contact_rate (float) (β): β, contact rate of the disease: an infected individual 
                                         comes into contact with βN other individuals per unit time (of which the fraction that are susceptible to contracting the disease is S/N).
-                mean_recovery_rate (float): Passed in the form of 1/γ, where:
+                mean_recovery_rate (float): γ, Passed in the form of 1/γ, where:
                                                 γ is the mean recovery rate: that is
                                                 1/γ is the mean period of time during which an infected individual can pass it on.
         """

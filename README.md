@@ -80,7 +80,7 @@ pip install covirus
 
 ##### SIR
 ```python
->>> from covirus.models.compartiment import SIR
+>>> from covirus.models.compartment import SIR
 >>> sir = SIR()
 >>> pop_size, n_infected, n_recovered, contact_rate, mean_recovery_rate = (
       1000,
@@ -90,7 +90,7 @@ pip install covirus
       1 / 10, #1 recovered per 10 days
   )
 >>> sir.fit(pop_size, n_infected, n_recovered, contact_rate, mean_recovery_rate)
->>> S, I, R = sir.predict(days=160)
+>>> S, I, R = sir.predict(days=360)
 >>> sir.plot()
 >
 ```
