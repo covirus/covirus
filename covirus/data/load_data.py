@@ -1,4 +1,4 @@
-from .countries.load_data import get_country_data
+from .countries.load_countries_data import get_country_data
 from .worldwide.load_world_data import load_world_dataset
 from .dataset import Dataset
 from abc import abstractmethod
