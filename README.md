@@ -84,9 +84,9 @@ Province/States	Country/Region	WHO region	1/21/2020	1/22/2020	1/23/2020	1/24/202
 >>> johns_hopkins_data.report("02-02-2020").sample(3)
 
 Province/State	Country/Region	Last Update	Confirmed	Deaths	Recovered
-5	Anhui	Mainland China	2020-02-02T18:03:05	340	0	7
-44	Ontario	Canada	2020-02-01T18:12:49	3	0	0
-14	Shaanxi	Mainland China	2020-02-02T03:23:14	116	0	0
+5	Anhui	Mainland China	2020-02-02	340	0	7
+44	Ontario	Canada	2020-02-01	3	0	0
+14	Shaanxi	Mainland China	2020-02-02	116	0	0
 ```
 
 
