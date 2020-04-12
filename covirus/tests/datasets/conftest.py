@@ -15,3 +15,8 @@ def wcota_dataset():
 @pytest.fixture(scope="session")
 def johns_hopkins_dataset():
     return load_dataset(source="JHU")
+
+
+@pytest.fixture(scope="session")
+def ministerio_da_saude_dataset():
+    return load_dataset(country="BR", source="ministerio_da_saude")
