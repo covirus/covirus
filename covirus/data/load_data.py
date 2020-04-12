@@ -1,4 +1,5 @@
 from .countries.load_data import get_country_data
+from .worldwide.load_world_data import load_world_dataset
 from .dataset import Dataset
 from abc import abstractmethod
 
@@ -37,8 +38,8 @@ def load_dataset(source=None, country=None) -> Dataset:
 def get_data(country, source):
     if country is not None:
         data = get_country_data(country, source)
-    else:
-        raise NotImplementedError
+    elif source is not None:
+        data = load_world_dataset(source)
     return data
 
 
