@@ -1,9 +1,13 @@
 language: python
 script: bash bin/test.sh
 deploy:
-  on:
-    branch: master
   provider: pypi
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    # Tag is on master and respects the form "v0.0.0"
+    branch:
+      - master
   user: __token__
   password:
     secure: O800OosA/jiu6W05pODZ/F/0uRZOjCOwX06+b+KMzuBwKtRewzxHQTpvAr9AM3K864AJaSa5wAwMVTlL/xOv0zYsZBXIsJNJbdC2hsGpzEBzI+FCFbd8+SxGWTykjpxRVidDR3qDTneoET+vbuz3iRj/Iwb43mAEovHMftzf2Dt0xRjMgJ2oVK29mFeaJr9P0mQB2TkRrUPuvFbSCrdBucm+FdfpE7XSaNAoAQg/THwDJOLbpdcZZxZ3pZp3aKcgUG4yC9DKq5OS7Ue26mek69dyNFSV7ZwqF0cXC59/4DmXhlEGBV7xxvRsuwCOv3Ca295Ci771l5KG856UbQko4u6v4fN6AzdvsEA2ZOdGZgQM1mgR0+gb76F4fJQE54j+6d0Gz1fDAGMRncuIDhH1NnCeMM4BvXy+4+s9DP4mFSH4Ly5IBarGffagGIlxnH9ItLw5gOkDWCsLbkmqcIYgq13iFZFGVSyxOyxA3s7xwTjhbvE0g/3zxJMUoSjNFzt9i46PA++Zp5eSm/w0L1tzajbpTSBh6l5boP8LCQ8JIpToaaG3dtWlV4S2rVi9wtTDPnYHEqXEZI9LmTCrvcEdyUQB3vJ6JmpfD5e2rIkR+J5nznRrKsXjiZmY7XjUmLs4KnvjqAtKo/RDOkUwIOwgXtlCkcU2vlu5ikbq5mGEa78=
