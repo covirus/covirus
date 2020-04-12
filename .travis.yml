@@ -1,6 +1,7 @@
 language: python
 script: bash bin/test.sh
 deploy:
+  skip_cleanup: true
   provider: pypi
   distributions: sdist bdist_wheel
   on:
