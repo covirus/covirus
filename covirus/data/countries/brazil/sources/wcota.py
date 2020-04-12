@@ -1,4 +1,3 @@
-import pandas as pd
 from ..br_dataset import BRDataset
 from covirus.data.dataset import GitDataset
 
@@ -18,10 +17,6 @@ class WCotaDataset(BRDataset, GitDataset):
         self.total = self.get_total()
         self.cases_with_coordinates = self.get_cases_with_coordinates()
         self.sources = self.get_sources()
-
-    def read_file(self, filename: str) -> pd.DataFrame:
-        path = f"{self.cache_dir}{self.repo_name}/" + filename
-        return pd.read_csv(path)
 
     def get_cities_time(self):
         return self.read_file("cases-brazil-cities-time.csv")

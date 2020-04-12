@@ -32,9 +32,11 @@ class Dataset:
     def load_objects(self):
         pass
 
-    @abstractmethod
-    def read_file(self, filename: str) -> pd.DataFrame:
-        pass
+    def read_file(self, filename: str, ignore_repo=False) -> pd.DataFrame:
+        path = self.cache_dir
+        if not ignore_repo:
+            path += f"{self.repo_name}/"
+        return pd.read_csv(path + filename)
 
     def get_cache_dir(self):
         return CACHE_DIR + "datasets/" + self.get_dataset_dir()
@@ -44,7 +46,10 @@ class Dataset:
         pass
 
     def list_dataset_files(self):
-        dataset_files = [glob.glob(self.cache_dir + f"*.{ext}", recursive=True) for ext in DATA_FORMATS]
+        dataset_files = [
+            glob.glob(self.cache_dir + f"/**/*.{ext}", recursive=True)
+            for ext in DATA_FORMATS
+        ]
         return list(itertools.chain(*dataset_files))
 
 
