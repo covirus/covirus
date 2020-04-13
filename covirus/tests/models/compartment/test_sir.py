@@ -1,5 +1,6 @@
 from covirus.models.compartment import SIR, CompartmentModel
 import numpy as np
+from covirus.tests.models.utils import is_number
 
 
 def test_sir_model():
@@ -36,11 +37,3 @@ def test_sir_model():
         for real, expected in variables:
             real = real.round(8)
             assert real == expected
-
-
-def is_number(v):
-    try:
-        float(v)
-        return True
-    except:
-        return False
