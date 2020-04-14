@@ -26,14 +26,18 @@ def test_seir_model():
     assert is_number(I[0])
     assert is_number(R[0])
 
-    #Values
-    expected_S = [12999846., 12999624.93174401, 12999435.52653244,
-       12999227.08508175]
-    expected_E = [0., 199.29874694, 334.84248468, 463.60144161]
-    expected_I = [152., 110.60586489, 110.34960838, 130.47433841]
-    expected_R = [2.,  65.16364416, 119.28137451, 178.83913824]
+    # Values
+    expected_S = [12999846.0, 12999624.93174401, 12999435.52653244, 12999227.08508175]
+    expected_E = [0.0, 199.29874694, 334.84248468, 463.60144161]
+    expected_I = [152.0, 110.60586489, 110.34960838, 130.47433841]
+    expected_R = [2.0, 65.16364416, 119.28137451, 178.83913824]
 
-    variables_to_validate = [zip(S, expected_S), zip(E, expected_E), zip(I, expected_I), zip(R, expected_R)]
+    variables_to_validate = [
+        zip(S, expected_S),
+        zip(E, expected_E),
+        zip(I, expected_I),
+        zip(R, expected_R),
+    ]
     for variables in variables_to_validate:
         for real, expected in variables:
             real = round(real, 8)
