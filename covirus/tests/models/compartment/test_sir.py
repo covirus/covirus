@@ -1,5 +1,5 @@
 from covirus.models.compartment import SIR, CompartmentModel
-import numpy as np
+import pandas as pd
 from covirus.tests.models.utils import is_number
 
 
@@ -21,9 +21,9 @@ def test_sir_model():
 
     # Assert
     assert isinstance(sir_model, CompartmentModel)
-    assert isinstance(S, np.ndarray)
-    assert isinstance(I, np.ndarray)
-    assert isinstance(R, np.ndarray)
+    assert isinstance(S, pd.Series)
+    assert isinstance(I, pd.Series)
+    assert isinstance(R, pd.Series)
     assert is_number(S[0])
     assert is_number(I[0])
     assert is_number(R[0])
@@ -35,5 +35,5 @@ def test_sir_model():
     variables_to_validate = [zip(S, expected_S), zip(I, expected_I), zip(R, expected_R)]
     for variables in variables_to_validate:
         for real, expected in variables:
-            real = real.round(8)
+            real = round(real, 8)
             assert real == expected

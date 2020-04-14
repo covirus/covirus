@@ -11,12 +11,12 @@ def test_seir_model():
     days = 4
 
     # Run
-    sir_model = SEIR()
-    sir_model.fit(N, E0, I0, R0, beta, gamma, alpha)
-    S, E, I, R = sir_model.predict(days=days)
+    seir_model = SEIR()
+    seir_model.fit(N, E0, I0, R0, beta, gamma, alpha)
+    S, E, I, R = seir_model.predict(days=days)
 
     # Assert
-    assert isinstance(sir_model, CompartmentModel)
+    assert isinstance(seir_model, CompartmentModel)
     assert isinstance(S, pd.Series)
     assert isinstance(E, pd.Series)
     assert isinstance(I, pd.Series)

@@ -1,7 +1,6 @@
 from .compartment import CompartmentModel
-from scipy.integrate import odeint
+import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 class SIR(CompartmentModel):
@@ -46,19 +45,19 @@ class SIR(CompartmentModel):
         self.gamma = mean_recovery_rate
 
     def predict(self, days: int = 10, plot=False):
-        self.days = days
-        ret = self.integrate_diff_SIR_equations_over_t()
-        self.S, self.I, self.R = ret.T
-        if plot:
-            self.plot()
-        return self.S, self.I, self.R
-
-    def integrate_diff_SIR_equations_over_t(self):
-        self.y0 = self.s0, self.i0, self.r0
-        self.t = np.linspace(0, self.days, self.days)
-        return odeint(
-            self.derivate, self.y0, self.t, args=(self.pop, self.beta, self.gamma)
+        self.initialize_variables(days)
+        self.S, self.I, self.R = self.integrate_diff_equations(
+            self.y0, self.t, self.pop, self.beta, self.gamma
         )
+        self.results = pd.DataFrame(
+            {"S": self.S, "I": self.I, "R": self.R}, index=self.t
+        )
+        return self.results.S, self.results.I, self.results.R
+
+    def initialize_variables(self, days):
+        self.days = days
+        self.t = np.linspace(0, self.days, self.days)
+        self.y0 = self.s0, self.i0, self.r0
 
     def derivate(self, y, days, pop, beta, gamma):
         S, I, R = y
@@ -80,42 +79,14 @@ class SIR(CompartmentModel):
         return gamma * I
 
     def plot(self, save=False):
-        ax = self.initialize_plot()
-        ax = self.plot_SIR(ax)
-        ax = self.format_plot(ax)
-        if save:
-            self.save()
-        plt.show()
+        super().plot(
+            "Time / days", "Number (1000s)", save=save,
+        )
 
-    @staticmethod
-    def initialize_plot():
-        fig = plt.figure(facecolor="w")
-        ax = fig.add_subplot(111, axisbelow=True)
-        return ax
-
-    def plot_SIR(self, ax):
+    def plot_model(self, ax):
         ax.plot(self.t, self.S / 1000, "b", alpha=0.5, lw=2, label="Susceptible")
         ax.plot(self.t, self.I / 1000, "r", alpha=0.5, lw=2, label="Infected")
         ax.plot(
             self.t, self.R / 1000, "g", alpha=0.5, lw=2, label="Recovered with immunity"
         )
         return ax
-
-    def format_plot(self, ax):
-        ax.set_xlabel("Time /days")
-        ax.set_ylabel("Number (1000s)")
-        ax.set_ylim(0, 1.2)
-        ax.yaxis.set_tick_params(length=0)
-        ax.xaxis.set_tick_params(length=0)
-        ax.grid(b=True, which="major", c="w", lw=2, ls="-")
-        legend = ax.legend()
-        legend.get_frame().set_alpha(0.5)
-        for spine in ("top", "right", "bottom", "left"):
-            ax.spines[spine].set_visible(False)
-        return ax
-
-    def save(self):
-        from datetime import datetime
-
-        filename = f"/SIR-generated-{datetime.today().date()}.jpg"
-        plt.savefig(filename)

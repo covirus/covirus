@@ -1,8 +1,8 @@
 from sklearn.base import BaseEstimator
-from abc import ABC, abstractmethod
+from scipy.integrate import odeint
+from ..plotable import Plotable
 
 
-class CompartmentModel(ABC, BaseEstimator):
-    @abstractmethod
-    def plot(self):
-        pass
+class CompartmentModel(BaseEstimator, Plotable):
+    def integrate_diff_equations(self, y0, t, *args):
+        return odeint(self.derivate, y0, t, args=args).T
